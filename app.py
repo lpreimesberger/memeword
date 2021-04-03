@@ -1,7 +1,7 @@
+import os
 from flask import Flask
 from faker import Faker
 from waitress import serve
-
 import secrets
 app = Flask(__name__)
 adjectives = []
@@ -9,6 +9,7 @@ colors = []
 nouns = []
 punctuation = ['.', '!', '?', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '|', ';', ':']
 fake = Faker()
+
 
 @app.route('/')
 @app.route('/random')
@@ -41,5 +42,9 @@ if __name__ == '__main__':
             nouns.append(l)
 
     random()
+    mah_port = 8080
+    if "PORT" in os.environ:
+        mah_port = os.environ["PORT"]
+    print("Port = {}", mah_port)
     serve(app, host="0.0.0.0", port=8080)
 #    app.run()
