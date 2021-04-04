@@ -45,6 +45,6 @@ if __name__ == '__main__':
     mah_port = 8080
     if "PORT" in os.environ:
         mah_port = os.environ["PORT"]
-    print("Port = {}", mah_port)
-    serve(app, host="0.0.0.0", port=8080)
+    print("Port = ", mah_port)
+    serve(app, host="0.0.0.0", port=mah_port)
 #    app.run()
